@@ -1,0 +1,30 @@
+#INCLUDE "protheus.ch"
+#DEFINE CRLF Chr(13) + Chr(10)
+
+/*/{Protheus.doc} jFile
+Função para executar rotinas via macro.
+
+@author João Victor Targino Foz
+
+@type user function
+@since 21/06/2021
+@version 1.0
+
+@param cAdress, character, Endereço do arquivo a ser aberto
+@return cText, character, conteúdo do arquivo lido
+/*/
+User Function jFile(cAddress as character)
+    Local cText as character
+    cText:= ""
+
+    If FT_FUSE(cAddress) <> -1 // Verifica se Existe
+        While ! FT_Feof()
+            cText += FT_FReadln()
+            FT_FSKIP()
+                //Conteúdo da Condição
+        Enddo
+        FT_FUSE()
+    Else
+        Alert("Erro! Arquivo Não Encontrado")
+    Endif
+Return cText
