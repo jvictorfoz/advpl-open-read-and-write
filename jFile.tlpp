@@ -2,16 +2,16 @@
 #DEFINE CRLF Chr(13) + Chr(10)
 
 /*/{Protheus.doc} jFile
-Função para executar rotinas via macro.
+FunÃ§Ã£o para abrir, ler e salvar arquivos de texto em variÃ¡vel
 
-@author João Victor Targino Foz
+@author JoÃ£o Victor Targino Foz
 
 @type user function
 @since 21/06/2021
 @version 1.0
 
-@param cAdress, character, Endereço do arquivo a ser aberto
-@return cText, character, conteúdo do arquivo lido
+@param cAdress, character, EndereÃ§o do arquivo a ser aberto
+@return cText, character, conteÃºdo do arquivo lido
 /*/
 User Function jFile(cAddress as character)
     Local cText as character
@@ -21,10 +21,10 @@ User Function jFile(cAddress as character)
         While ! FT_Feof()
             cText += FT_FReadln()
             FT_FSKIP()
-                //Conteúdo da Condição
+                //ConteÃºdo da CondiÃ§Ã£o
         Enddo
         FT_FUSE()
     Else
-        Alert("Erro! Arquivo Não Encontrado")
+        Alert("Erro! Arquivo NÃ£o Encontrado")
     Endif
 Return cText
